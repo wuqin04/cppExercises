@@ -5,16 +5,24 @@
 
 #include <iostream>
 
+int getInput(int value);
+bool is30(int x, int y);
+
 int main() {
-    int num1 = 0, num2 = 0;
-    bool is30{};
+    int num1{getInput(num1)};
+    int num2{getInput(num2)};
+    
+    bool check{is30(num1, num2)};
 
-    std::cout << "Input num1: ";
-    std::cin >> num1;
-    std::cout << "Input num2: ";
-    std::cin >> num2;
+    std::cout << check;
+}
 
-    // if (num1 = num2) {
-    //     std::cout << is30{true};
-    // }
+bool is30(int x, int y) {
+    return x + y == 30 || x == 30 || y == 30;
+}
+
+int getInput(int value) {
+    std::cout << "Input num: ";
+    std::cin >> value;
+    return value;
 }
