@@ -25,44 +25,32 @@
 
 #include <iostream>
 
-float distanceFallen(float seconds);
-float currentHeight(float height, float distanceFallen);
+float currentHeight(float height,float seconds);
+void printHeight(float height,float seconds);
 
 int main() {
-    float x_seconds{0.0f};
+    float height{};
+    std::cout << "Enter the height of the tower in meters: ";
+    std::cin >> height;
 
-    float initial_height{};
-    std::cout << "Enter the height of the tower(m): ";
-    std::cin >> initial_height;
-
-    std::cout << "At 0 seconds, the ball is at height: " << currentHeight(initial_height, distanceFallen(x_seconds)) << '\n';
-    x_seconds++;
-
-    std::cout << "At 1 seconds, the ball is at height: " << currentHeight(initial_height, distanceFallen(x_seconds)) << '\n';
-    x_seconds++;
-
-    std::cout << "At 2 seconds, the ball is at height: " << currentHeight(initial_height, distanceFallen(x_seconds)) << '\n';
-    x_seconds++;
-
-    std::cout << "At 3 seconds, the ball is at height: " << currentHeight(initial_height, distanceFallen(x_seconds)) << '\n';
-    x_seconds++;
-
-    std::cout << "At 4 seconds, the ball is at height: " << currentHeight(initial_height, distanceFallen(x_seconds)) << '\n';
-    x_seconds++;
-
-    if (currentHeight(initial_height, distanceFallen(x_seconds)) < 0.0f){
-        std::cout << "At 5 seconds, the ball is on the ground. " << '\n';
-    }
-    else {
-        std::cout << "At 5 seconds, the ball is at height: " << currentHeight(initial_height, distanceFallen(x_seconds)) << '\n';
-    }
+    printHeight(currentHeight(height,0),0);
+    printHeight(currentHeight(height,1),1);
+    printHeight(currentHeight(height,2),2);
+    printHeight(currentHeight(height,3),3);
+    printHeight(currentHeight(height,4),4);
+    printHeight(currentHeight(height,5),5);
+     
 }
 
-float distanceFallen(float seconds) {
-    const float gravity{9.81f};
-    return gravity * seconds * seconds / 2;
+float currentHeight(float height,float seconds) {
+    const float gravity{9.81};
+    float distancefallen = gravity * seconds * seconds / 2;
+    return height - distancefallen;
 }
 
-float currentHeight(float height, float distanceFallen) {
-    return height - distanceFallen;
+void printHeight(float height,float seconds) {
+    if (height > 0)
+        std::cout << "At " << seconds << " seconds, " << "the ball is at height: " << height << " meters." << '\n';
+    else 
+        std::cout << "At " << seconds << " seconds, " << "the ball is on the ground." << '\n';
 }
