@@ -1,9 +1,10 @@
-#include <iostream>
+ #include <iostream>
+ #include <string>
 
-int main()
-{
-    char ch{ 97 }; // 97 is ASCII code for 'a'
-    std::cout << static_cast<int>(ch) << '\n';
+ int main() {
+    std::cout << "Your full name: ";
+    std::string name{};
+    std::getline(std::cin >> std::ws,name);
 
-    return 0;
-}
+    std::cout << "Your name has " << name.length() << " characters.";
+ }
