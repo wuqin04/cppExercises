@@ -1,22 +1,21 @@
 #include <iostream>
 
-int main() {
-   bool isAccepted{false};
+namespace foo{
+   int sub(int x, int y) {
+      return x - y;
+   }
 
-   std::string input{};
-
-   std::cout << "Do you want to go out with me?" << "\n";
-   std::cout << "(Yes/No)";
-   std::cin >> input;
-
-   while (!isAccepted) {
-      if (input == "Yes" || input == "yes") {
-         std::cout << "Let's date on 27/5/2024.";
-         isAccepted == true;
-      }
-      else {
-         std::cout << "Do you want to go out with me?" << "\n";
-         std::cout << "(Yes/No)";
+   namespace goo{
+      int sum(int x, int y) {
+         return x + y;
       }
    }
+}
+
+int main() {
+   namespace first = foo;
+   namespace second = foo::goo;
+
+   std::cout << second::sum(5,6);
+   std::cout << first::sub(5,6);
 }
