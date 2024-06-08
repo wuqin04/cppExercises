@@ -58,5 +58,5 @@
         "vector": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled",
-    "C_Cpp.intelliSenseEngineFallback": "enabled"
+    "C_Cpp.intelliSenseEngineFallback": "disabled"
   }
